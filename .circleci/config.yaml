@@ -2,7 +2,17 @@ version: 2
 jobs:
    build:
      docker:
-       - image: circleci/nadamohamed2222/sampleslick:v3
+       - image: mareimorsy/light-base
      steps:
        - checkout
-       - run: echo "A first hello"
+       - run:
+           name: "Docker authentication"
+           command: 
+              docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+       - run: |
+           name: "Build & Push Docker image"
+           command: |
+              docker build -t nadamohamed2222/newimg:v1 .
+              docker push nadamohamed2222/newimg:v1
+           

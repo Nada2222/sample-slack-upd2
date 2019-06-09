@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM mareimorsy/light-base
 # Specify SBT version
 ENV SBT_VERSION 1.1.0
 
