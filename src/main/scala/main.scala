@@ -28,7 +28,7 @@ object main extends App with UserRoute {
   //#main-class
 
   //#http-server
-  val serverBinding: Future[Http.ServerBinding] = Http().bindAndHandle(routes, "localhost", 8080)
+  val serverBinding: Future[Http.ServerBinding] = Http().bindAndHandle(routes, "0.0.0.0", 8080)
 
   serverBinding.onComplete {
     case Success(bound) =>
