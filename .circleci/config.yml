@@ -17,5 +17,5 @@ jobs:
       - run: 
           name: "Build & Push Docker image"
           command: |
-            docker build -t nadamohamed2222/newimg:v2 .
-            docker push nadamohamed2222/newimg:v2
+            docker build -t nadamohamed2222/newimg:3 .
+            docker push nadamohamed2222/newimg:3
