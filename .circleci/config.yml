@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: openjdk:8
+      - image: mareimorsy/light-base
     steps:
       - checkout
       
@@ -17,5 +17,5 @@ jobs:
       - run: 
           name: "Build & Push Docker image"
           command: |
-            docker build -t nadamohamed2222/newimg:v1 .
-            docker push nadamohamed2222/newimg:v1
+            docker build -t nadamohamed2222/newimg:v2 .
+            docker push nadamohamed2222/newimg:v2
