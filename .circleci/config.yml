@@ -1,23 +1,23 @@
-version: 2 
+version: 2
 jobs:
   build:
     docker:
-      - image: mareimorsy/light-base
+    - image: mareimorsy/light-base
     steps:
-      - checkout
+    - checkout
       
-      - setup_remote_docker:
-         docker_layer_caching: true
+    - setup_remote_docker:
+        docker_layer_caching: true
 
-      - run:
-         name: "Log in to AWS ECR"
-         command: eval $(aws ecr get-login --no-include-email)
+    - run:
+        name: "Log in to AWS ECR"
+        command: eval $(aws ecr get-login --no-include-email)
 
-     - run:
-         name: Build & Push docker images
-         command: curl -s https://s3.amazonaws.com/elmenus-scripts/docker-images/build.sh | bash
+    - run:
+        name: Build & Push docker images
+        command: curl -s https://s3.amazonaws.com/elmenus-scripts/docker-images/build.sh | bash
 
-     - run:
-         name: "Notify users on slack"
-         command: curl -s https://s3.amazonaws.com/elmenus-scripts/deploy-cast/mention.sh | bash
+    - run:
+        name: "Notify users on slack"
+        command: curl -s https://s3.amazonaws.com/elmenus-scripts/deploy-cast/mention.sh | bash
 
